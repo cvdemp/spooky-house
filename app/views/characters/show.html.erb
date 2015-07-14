@@ -2,16 +2,6 @@
   <h1><%=@character.name%></h1>
 </div>
 
-<div class="row">
-  <div class="small-3 columns">
-    <div class="stuff">
-    <div id="flat-slider">
-    </div>
-    </div>
-  </div>
-</div>
-
-
 <div>
   <h3> Speed:
   <% @character.character_stats.each do |character_stat|%>
@@ -21,6 +11,7 @@
     <% end %>
   </h3>
 </div>
+
 <div>
   <h3>Might:
     <% @character.character_stats.each do |character_stat|%>
