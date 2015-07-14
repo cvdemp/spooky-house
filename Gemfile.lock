@@ -278,10 +278,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   compass-rails (~> 2.0.2)
   coveralls
-<<<<<<< HEAD
-=======
   database_cleaner
->>>>>>> 8f51893f217852a9a720e8742a4bc70a750be275
   devise
   factory_girl
   foundation-rails

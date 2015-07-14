@@ -13,7 +13,6 @@
  *= require foundation_and_overrides
  *= require jquery-ui
  *= require jquery-ui-slider-pips
- *= require jquery.nouislider
  *= require_tree .
  *= require_self
  */
@@ -35,7 +34,6 @@ h1 {
   color: #ffffff;
 }
 
-<<<<<<< HEAD
 h2 {
   color: #ffffff;
 }
