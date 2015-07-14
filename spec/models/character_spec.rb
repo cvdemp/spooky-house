@@ -5,7 +5,8 @@ RSpec.describe Character do
   let(:character_stat) { CharacterStat.create!(character_id: character.id,
                                                stat_id: 1,
                                                level: 2,
-                                               value: 3) }
+                                               value: 3)
+}
 
   it 'has a name' do
     expect(character.name).to eq("Professor Longfellow")
