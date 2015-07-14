@@ -15,6 +15,7 @@
 //= require foundation
 //= require jquery-ui
 //= require jquery-ui-slider-pips
+//= require jquery.nouislider
 //= require_tree .
 
 $(function(){

@@ -1,43 +1,39 @@
 <div>
   <h1><%=@character.name%></h1>
 </div>
-
-
 <div>
-  <h3>
+    <% speed_array=[] %>
+    <% @character.character_stats.each do |character_stat|%>
+        <% if character_stat.stat_id == 1 %>
+          <%speed_array << character_stat.value %>
+        <% end %>
+      <% end %>
     <div class="well">
       <h2>Speed</h2>
         <hr>
           <div id="stat-slider" class="no-ui-slider">
             <div class="slider"></div>
             <ul class="slider-labels nine-columns">
-              <% speed_array=[] %>
-              <% @character.character_stats.each do |character_stat|%>
-                  <% if character_stat.stat_id == 1 %>
-                    <%= speed_array >> character_stat.value %>
-                  <% end %>
-                <% end %>
-              <li>0</li>
-              <li>2</li>
-              <li>2</li>
-              <li>4</li>
-              <li class="active">4</li>
-              <li>5</li>
-              <li>5</li>
-              <li>6</li>
-              <li>6</li>
+              <li><%= speed_array[0] %></li>
+              <li><%= speed_array[1] %></li>
+              <li><%= speed_array[2] %></li>
+              <li><%= speed_array[3] %></li>
+              <li class="active"><%= speed_array[4] %></li>
+              <li><%= speed_array[5] %></li>
+              <li><%= speed_array[6] %></li>
+              <li><%= speed_array[7] %></li>
+              <li><%= speed_array[8] %></li>
             </ul>
-        </h3>
       </div>
     </div>
   </div>
+
 <div>
-
-
+  <% might_array=[] %>
   <h3>Might:
     <% @character.character_stats.each do |character_stat|%>
         <% if character_stat.stat_id == 2 %>
-          <%= character_stat.value %>
+          <%= speed_array << character_stat.value %>
         <% end %>
       <% end %>
   </h3>
@@ -62,3 +58,43 @@
       <% end %>
   </h3>
 </div>
+
+<script>
+$(function() {
+  $("#stat-slider .slider").noUiSlider({
+    start: 4,
+    step: 1,
+    connect: "lower",
+    range: {
+      'min': 0,
+      'max': 8
+    },
+    serialization: {
+      format: {
+        decimals: 0
+      }
+    }
+  });
+
+  $('#stat-slider .slider').on('change', function(){
+		highlightLabel($(this).val());
+	});
+
+  $('#stat-slider .slider').on('slide', function(){
+    highlightLabel($(this).val());
+  });
+
+  $("#stat-slider .slider-labels").on("click", "li", function() {
+    $('#stat-slider .slider').val($(this).index());
+    highlightLabel($(this).index());
+  });
+
+  function highlightLabel($this) {
+    $('#stat-slider .slider-labels li').removeClass('active');
+    var index = parseInt($this) + 1;
+    var selector = '#stat-slider .slider-labels li:nth-child(' + index + ')';
+    $(selector).addClass('active');
+  }
+
+});
+</script>
