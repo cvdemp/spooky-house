@@ -53,3 +53,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'rails-erd'
 gem 'pry-rails', group: [:development, :test]
+
+group :test do
+  gem 'coveralls', require: false
+end
