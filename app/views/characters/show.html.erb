@@ -11,9 +11,10 @@
           <div id="stat-slider" class="no-ui-slider">
             <div class="slider"></div>
             <ul class="slider-labels nine-columns">
+              <% speed_array=[] %>
               <% @character.character_stats.each do |character_stat|%>
                   <% if character_stat.stat_id == 1 %>
-                    <%= speed_aray >> character_stat.value %>
+                    <%= speed_array >> character_stat.value %>
                   <% end %>
                 <% end %>
               <li>0</li>
