@@ -1,11 +1,10 @@
 <div>
   <h1><%=@character.name%></h1>
 </div>
-<div>
-    <% speed_array=[] %>
+    <% speed_array = [] %>
     <% @character.character_stats.each do |character_stat|%>
         <% if character_stat.stat_id == 1 %>
-          <%speed_array << character_stat.value %>
+          <% speed_array << character_stat.value %>
         <% end %>
       <% end %>
     <div class="well">
@@ -29,34 +28,84 @@
   </div>
 
 <div>
-  <% might_array=[] %>
-  <h3>Might:
+  <% might_array = [] %>
     <% @character.character_stats.each do |character_stat|%>
         <% if character_stat.stat_id == 2 %>
-          <%= speed_array << character_stat.value %>
+          <% might_array << character_stat.value %>
         <% end %>
       <% end %>
-  </h3>
+  <div class="well">
+    <h2>Might</h2>
+      <hr>
+        <div id="stat-slider" class="no-ui-slider">
+          <div class="slider"></div>
+          <ul class="slider-labels nine-columns">
+            <li><%= might_array[0] %></li>
+            <li><%= might_array[1] %></li>
+            <li><%= might_array[2] %></li>
+            <li><%= might_array[3] %></li>
+            <li class="active"><%= might_array[4] %></li>
+            <li><%= might_array[5] %></li>
+            <li><%= might_array[6] %></li>
+            <li><%= might_array[7] %></li>
+            <li><%= might_array[8] %></li>
+          </ul>
+    </div>
+  </div>
 </div>
 
 <div>
-  <h3>Sanity:
+  <% sanity_array = [] %>
     <% @character.character_stats.each do |character_stat|%>
         <% if character_stat.stat_id == 3 %>
-          <%= character_stat.value %>
+          <% sanity_array << character_stat.value %>
         <% end %>
       <% end %>
-  </h3>
+  <div class="well">
+    <h2>Sanity</h2>
+      <hr>
+        <div id="stat-slider" class="no-ui-slider">
+          <div class="slider"></div>
+          <ul class="slider-labels nine-columns">
+            <li><%= sanity_array[0] %></li>
+            <li><%= sanity_array[1] %></li>
+            <li><%= sanity_array[2] %></li>
+            <li><%= sanity_array[3] %></li>
+            <li class="active"><%= sanity_array[4] %></li>
+            <li><%= sanity_array[5] %></li>
+            <li><%= sanity_array[6] %></li>
+            <li><%= sanity_array[7] %></li>
+            <li><%= sanity_array[8] %></li>
+          </ul>
+    </div>
+  </div>
 </div>
 
 <div>
-  <h3>Knowledge:
+  <% knowledge_array = [] %>
     <% @character.character_stats.each do |character_stat|%>
         <% if character_stat.stat_id == 4 %>
-          <%= character_stat.value %>
+          <% knowledge_array << character_stat.value %>
         <% end %>
       <% end %>
-  </h3>
+  <div class="well">
+    <h2>Knowledge</h2>
+      <hr>
+        <div id="stat-slider" class="no-ui-slider">
+          <div class="slider"></div>
+          <ul class="slider-labels nine-columns">
+            <li><%= knowledge_array[0] %></li>
+            <li><%= knowledge_array[1] %></li>
+            <li><%= knowledge_array[2] %></li>
+            <li><%= knowledge_array[3] %></li>
+            <li class="active"><%= knowledge_array[4] %></li>
+            <li><%= knowledge_array[5] %></li>
+            <li><%= knowledge_array[6] %></li>
+            <li><%= knowledge_array[7] %></li>
+            <li><%= knowledge_array[8] %></li>
+          </ul>
+    </div>
+  </div>
 </div>
 
 <script>
