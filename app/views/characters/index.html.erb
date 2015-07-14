@@ -1,0 +1,7 @@
+<div>
+  <h1>Pick a character!</h1>
+  <h3><% @characters.each do |character| %>
+      <%=link_to character.name, character_path(character) %>
+      <% end %>
+  </h3>
+</div>
