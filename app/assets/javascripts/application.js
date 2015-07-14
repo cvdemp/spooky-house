@@ -19,14 +19,4 @@
 
 $(function(){
   $(document).foundation();
-  $("#flat-slider")
-    .slider({
-        max: 9,
-        min: 0,
-        range: false,
-    })
-    .slider("pips", {
-        first: false,
-        last: false
-    });
 });

@@ -11,10 +11,11 @@ feature 'user selects character', %{
   # [] User sees chosen character with markers at starting levels
 
   scenario "user choses character" do
-    visit root_path
+    Character.create!(name:"Professor Longfellow")
 
-    click_link("Choose a character")
-    select "Professor Longfellow", from: "Characters"
+    visit root_path
+    click_link("Professor Longfellow")
+    # select "Professor Longfellow", from: "Characters"
 
     expect(page).to have_content("Speed")
   end
