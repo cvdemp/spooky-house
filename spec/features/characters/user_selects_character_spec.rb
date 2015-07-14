@@ -11,7 +11,7 @@ feature 'user selects character', %{
   # [] User sees chosen character with markers at starting levels
 
   scenario "user choses character" do
-    Character.create!(name:"Professor Longfellow")
+    Character.create!(name: "Professor Longfellow")
 
     visit root_path
     click_link("Professor Longfellow")

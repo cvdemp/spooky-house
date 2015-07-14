@@ -23,17 +23,17 @@
 */
 
 body {
-  background: image-url('background.jpg') no-repeat center center fixed;
+  background: image-url("background.jpg") no-repeat center center fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  background-size: cover;
 }
 
 h1 {
-  color:white;
+  color: #ffffff;
 }
 
 h3 {
-  color:white;
+  color: #ffffff;
 }
