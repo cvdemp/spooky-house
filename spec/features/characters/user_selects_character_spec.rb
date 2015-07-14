@@ -10,7 +10,7 @@ feature 'user selects character', %{
   # [] User can select character from a list
   # [] User sees chosen character with markers at starting levels
 
-  let(:character) { Character.create!(name:"Professor Longfellow") }
+  let(:character) { Character.create!(name: "Professor Longfellow") }
 
   scenario "user choses character" do
 
