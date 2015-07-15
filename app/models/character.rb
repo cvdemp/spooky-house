@@ -4,5 +4,6 @@ class Character < ActiveRecord::Base
   has_many :stats, through: :character_stats
   has_many :character_stats
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { scope: [:game_id],
+                                    message: "Character is in use." }
 end
