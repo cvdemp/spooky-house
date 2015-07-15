@@ -7,13 +7,13 @@ feature 'user selects character', %{
 } do
 
   # Acceptance Criteria
-  # [] User can select character from a list
-  # [] User sees chosen character with markers at starting levels
+  # [] Player can select character from a list
+  # [] Player sees chosen character with markers at starting levels
 
-  scenario "user choses character" do
+  scenario "player choses character" do
     Character.create!(name: "Professor Longfellow")
 
-    visit root_path
+    visit characters_path
     click_link("Professor Longfellow")
     # select "Professor Longfellow", from: "Characters"
 

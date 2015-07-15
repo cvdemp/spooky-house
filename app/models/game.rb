@@ -1,4 +1,4 @@
-class GameStat < ActiveRecord::Base
+class Game < ActiveRecord::Base
   has_many :characters
 
   validates :name, presence: true

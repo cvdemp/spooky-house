@@ -1,0 +1,10 @@
+<div>
+  <h1> Join a Game </h1>
+  <% @games.each do |game| %>
+    <%= game.name %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "Create a game", new_game_path(@game), class: "button" %>
+</div>
