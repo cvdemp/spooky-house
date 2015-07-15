@@ -1,7 +1,8 @@
 <div>
-  <h1>Pick a character!</h1>
-  <h3><% @characters.each do |character| %>
-      <%=link_to character.name, character_path(character) %><br>
-      <% end %>
+  <h1>Pick an explorer!</h1>
+  <%= form_for @character do |f| %>
+    <%= select("character", "name", @characters.collect {|c| [c.name, c.id]}) %>
+    <%= f.submit "Submit", class: "button radius" %>
+  <% end %>
   </h3>
 </div>
