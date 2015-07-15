@@ -14,7 +14,6 @@ feature 'user creates a game', %{
     visit games_path
 
     click_link("Create a game")
-    save_and_open_page
 
     fill_in "Name", with: "The best game"
     click_button("Submit")

@@ -1,7 +1,7 @@
 <div>
   <h1> Join a Game </h1>
   <% @games.each do |game| %>
-    <%= game.name %>
+    <%= link_to game.name, game_path(game) %>
   <% end %>
 </div>
 

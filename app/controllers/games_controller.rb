@@ -19,6 +19,10 @@ class GamesController < ApplicationController
     end
   end
 
+  def show
+    @characters = Character.all
+  end
+
   protected
 
   def game_params
