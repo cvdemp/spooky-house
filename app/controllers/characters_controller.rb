@@ -54,4 +54,26 @@ class CharactersController < ApplicationController
       redirect_to new_user_session_path
     end
   end
+
+  def character_stat_array
+    if 1 >= character.birthday.month <= 3
+        speed_array = SPEED_ARRAY_1
+      elsif  4 >= character.birthday.month <= 6
+        SPEED_ARRAY_2
+      elsif  7 >= character.birthday.month <= 9
+        SPEED_ARRAY_3
+      else
+        SPEED_ARRAY_4
+    end
+
+    if 1 >= character.birthday.day <= 7
+        SANITY_ARRAY_1
+      elsif 8 >= character.birthday.month <= 15
+        SANITY_ARRAY_2
+      elsif 16 >= character.birthday.month <= 23
+        SANITY_ARRAY_3
+      else
+        SANITY_ARRAY_4
+    end
+  end
 end
