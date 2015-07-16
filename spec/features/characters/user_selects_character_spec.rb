@@ -11,11 +11,17 @@ feature 'user selects character', %{
   # [] Player sees chosen character with markers at starting levels
 
   scenario "player choses character" do
-    Character.create!(name: "Professor Longfellow")
+    user = FactoryGirl.create(:user)
+    game = FactoryGirl.create(:game)
+    character = FactoryGirl.create(:character)
 
-    visit characters_path
-    click_link("Professor Longfellow")
-    # select "Professor Longfellow", from: "Characters"
+    sign_in_as(user)
+
+    visit games_path
+
+    click_link(game.name)
+
+    click_link(character.name)
 
     expect(page).to have_content("Speed")
   end

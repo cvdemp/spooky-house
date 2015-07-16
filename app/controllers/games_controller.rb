@@ -20,7 +20,16 @@ class GamesController < ApplicationController
   end
 
   def show
+    @game = Game.find(params[:id])
     @characters = Character.all
+    @character = Character.new
+  end
+
+  def update
+    # you will have character info
+    # you will have game info
+    # @character.game = @game
+    # if @character.save send elsewhere
   end
 
   protected

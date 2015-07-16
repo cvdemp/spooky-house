@@ -8,9 +8,14 @@ feature 'user creates a game', %{
 
   # Acceptance Criteria
   # [x] Player can create a game
+  # [] Player must be signed in to create a game
   # [x] Player can see the new game on the games list
 
-  scenario "player creates game" do
+  scenario "authenticated player creates game" do
+    user = FactoryGirl.create(:user)
+
+    sign_in_as(user)
+
     visit games_path
 
     click_link("Create a game")
