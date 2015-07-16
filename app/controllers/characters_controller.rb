@@ -24,6 +24,15 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
   end
 
+  def update
+    @character = Character.new(params[:id])
+    if @character.update(character_params)
+      flash[:notice] = "Character Added!"
+    else
+      flash[:notice] = @character.errors.full_messages.join(" ")
+    end
+  end
+
   protected
 
   def character_params

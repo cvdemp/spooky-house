@@ -1,17 +1,23 @@
 <h1><%= @game.name %></h1>
 
-<!-- <div>
+<div>
   <h1>Pick an character!</h1>
-  <h3><%= form_tag(characters_path, method:"update") do %>
-        <%= label_tag :character %>
-        <%= select_tag(:character, Character.all.collect{|c| [c.name, c.id]})%></br>
-        <%= submit_tag "Select character" %>
-      <%- end -%>
+  <h3><%= form_for @character do |f| %>
+
+      <%= f.select :name, Character.all.collect{|c| [c.name]} %></br>
+
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <%= f.hidden_field :game_id, value: @game.id %>
+
+      <%= f.submit "Select character" %>
+    <%- end -%>
   </h3>
-</div> -->
+</div>
 
 <div>
 <% if !@game.characters.nil? && !@game.characters.empty? %>
+  <h3>Current Players</h3>
   <%= @game.characters.each do |char| %>
     <%= link_to char.name, character_path(char) %>
   <% end %>

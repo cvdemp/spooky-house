@@ -20,14 +20,12 @@ class GamesController < ApplicationController
   end
 
   def show
-    @character = Character.find(params[:id]).update(game_id: params[:id])
-    # @characters = Character.all
     @game = Game.find(params[:id])
     @characters = Character.all
+    @character = Character.new
   end
 
   def update
-    @character = Character.update(game_id: params[:id])
     # you will have character info
     # you will have game info
     # @character.game = @game

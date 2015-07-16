@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   'characters#index'
-  resources :characters, except: [:edit, :update, :delete]
+  resources :characters, except: [:delete]
 
   root 'games#index'
   resources :games
