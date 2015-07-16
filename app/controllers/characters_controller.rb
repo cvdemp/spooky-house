@@ -6,7 +6,7 @@ class CharactersController < ApplicationController
   end
 
   def new
-    @character = Character.new #with game_id from game params
+    @character = Character.new
   end
 
   def create
