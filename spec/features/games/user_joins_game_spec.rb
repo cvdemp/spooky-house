@@ -12,8 +12,11 @@ feature 'player joins a game', %{
   # [] Player can see character at game table
 
   game = FactoryGirl.create(:game)
+  user = FactoryGirl.create(:user)
 
   scenario 'player joins game' do
+    sign_in_as(user)
+
     visit games_path
 
     click_link(game.name)

@@ -1,7 +1,21 @@
+<h1><%= @game.name %></h1>
+
 <div>
   <h1>Pick a character!</h1>
   <h3><% @characters.each do |character| %>
       <%=link_to character.name, character_path(character) %><br>
       <% end %>
   </h3>
+</div>
+
+<div>
+<% if !@game.characters.nil? && !@game.characters.empty? %>
+  <%= @game.characters.each do |char| %>
+    <%= link_to char.name, character_path(char) %>
+  <% end %>
+<% end %>
+</div>
+
+<div>
+  <%= link_to "Create a character", new_character_path(@character), class: "button" %>
 </div>

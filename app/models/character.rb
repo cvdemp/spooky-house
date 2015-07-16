@@ -1,4 +1,10 @@
 class Character < ActiveRecord::Base
+  class << columns_hash['birthday']
+    def type
+      :date
+    end
+  end
+
   belongs_to :user
   belongs_to :game
   has_many :stats, through: :character_stats
