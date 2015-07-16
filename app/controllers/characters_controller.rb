@@ -68,9 +68,9 @@ class CharactersController < ApplicationController
   def speed(character)
     if 0 < character.birthday.month && character.birthday.month < 4
         speed_array = SPEED_ARRAY_1
-      elsif  4 < character.birthday.month && character.birthday.month < 7
+      elsif  4 <= character.birthday.month && character.birthday.month < 7
         speed_array = SPEED_ARRAY_2
-      elsif  7 < character.birthday.month && character.birthday.month < 10
+      elsif  7 <= character.birthday.month && character.birthday.month < 10
         speed_array = SPEED_ARRAY_3
       else
         speed_array = SPEED_ARRAY_4
@@ -79,17 +79,44 @@ class CharactersController < ApplicationController
   end
 
 
-  def sanity
-    if 1 >= character.birthday.day <= 7
+  def sanity(character)
+    if 0 < character.birthday.day && character.birthday.day < 7
         SANITY_ARRAY_1
-      elsif 8 >= character.birthday.month <= 15
+      elsif 7 <= character.birthday.day && character.birthday.day < 15
         SANITY_ARRAY_2
-      elsif 16 >= character.birthday.month <= 23
+      elsif 15 <= character.birthday.day && character.birthday.day < 23
         SANITY_ARRAY_3
       else
         SANITY_ARRAY_4
     end
+    return sanity_array
   end
 
-helper_method :speed
+  def knowledge(character)
+    if 0 < character.hobby_1_id && character.hobby_1_id < 4
+        knowledge_array = KNOWLEDGE_ARRAY_1
+      elsif  4 <= character.hobby_1_id && character.hobby_1_id < 7
+        knowledge_array = KNOWLEDGE_ARRAY_2
+      elsif  7 <= character.hobby_1_id && character.hobby_1_id < 10
+        knowledge_array = KNOWLEDGE_ARRAY_3
+      else
+        knowledge_array = KNOWLEDGE_ARRAY_4
+    end
+    return knowledge_array
+  end
+
+  def might(character)
+    if 0 < character.hobby_2_id && character.hobby_2_id < 4
+        might_array = MIGHT_ARRAY_1
+      elsif  4 <= character.hobby_2_id && character.hobby_2_id < 7
+        might_array = MIGHT_ARRAY_2
+      elsif  7 <= character.hobby_2_id && character.hobby_2_id < 10
+        might_array = MIGHT_ARRAY_3
+      else
+        might_array = MIGHT_ARRAY_4
+    end
+    return might_array
+  end
+
+helper_method :speed, :sanity, :knowledge, :might
 end
