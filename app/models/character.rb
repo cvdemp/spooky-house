@@ -11,5 +11,5 @@ class Character < ActiveRecord::Base
   has_many :character_stats
 
   validates :name, presence: true, uniqueness: { scope: [:game_id],
-                                    message: "Character is in use." }
+                                   message: "Character is in use." }
 end

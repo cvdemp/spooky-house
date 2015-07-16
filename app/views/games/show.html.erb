@@ -1,7 +1,7 @@
 <h1><%= @game.name %></h1>
 
 <div>
-  <h1>Pick an character!</h1>
+  <h1>Pick a character!</h1>
   <h3><%= form_for @character do |f| %>
 
       <%= f.select :name, Character.where(game_id: nil).collect{|c| [c.name]} %></br>

@@ -20,7 +20,7 @@ feature 'user selects character', %{
     visit games_path
 
     click_link(game.name)
-    save_and_open_page
+
     click_link(character.name)
 
     expect(page).to have_content("Speed")
