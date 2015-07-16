@@ -1,43 +1,23 @@
 <div>
-  <h1><%=@character.name%></h1>
+  <h1><%= @character.name %></h1>
+</div>
+  <% speed_array = speed(@character) %>
+  <% sanity_array = sanity(@character) %>
+  <% might_array = might(@character) %>
+  <% knowledge_array = knowledge(@character) %>
+
+<div>
+  <h3> Speed <%= speed_array %> </h3>
 </div>
 
 <div>
-  <h3> Speed:
-  <% @character.character_stats.each do |character_stat|%>
-      <% if character_stat.stat_id == 1 %>
-        <%= character_stat.value %>
-      <% end %>
-    <% end %>
-  </h3>
+  <h3> Sanity <%= sanity_array %> </h3>
 </div>
 
 <div>
-  <h3>Might:
-    <% @character.character_stats.each do |character_stat|%>
-        <% if character_stat.stat_id == 2 %>
-          <%= character_stat.value %>
-        <% end %>
-      <% end %>
-  </h3>
+  <h3> Might <%= might_array %> </h3>
 </div>
 
 <div>
-  <h3>Sanity:
-    <% @character.character_stats.each do |character_stat|%>
-        <% if character_stat.stat_id == 3 %>
-          <%= character_stat.value %>
-        <% end %>
-      <% end %>
-  </h3>
-</div>
-
-<div>
-  <h3>Knowledge:
-    <% @character.character_stats.each do |character_stat|%>
-        <% if character_stat.stat_id == 4 %>
-          <%= character_stat.value %>
-        <% end %>
-      <% end %>
-  </h3>
+  <h3> Knowledge <%= knowledge_array %> </h3>
 </div>

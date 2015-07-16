@@ -55,17 +55,31 @@ class CharactersController < ApplicationController
     end
   end
 
-  def character_stat_array
-    if 1 >= character.birthday.month <= 3
-        speed_array = SPEED_ARRAY_1
-      elsif  4 >= character.birthday.month <= 6
-        SPEED_ARRAY_2
-      elsif  7 >= character.birthday.month <= 9
-        SPEED_ARRAY_3
-      else
-        SPEED_ARRAY_4
-    end
+  SPEED_ARRAY_1 = [ 0, 2, 3, 3, 4, 5, 6, 7, 7]
+  SPEED_ARRAY_2 = [ 0, 3, 4, 4, 4, 5, 6, 7, 8]
+  SPEED_ARRAY_3 = [ 0, 3, 3, 4, 5, 6, 6, 7, 8]
+  SPEED_ARRAY_4 = [ 0, 4, 4, 4, 5, 6, 7, 7, 8]
 
+  SANITY_ARRAY_1 = [ 0, 2, 3, 3, 4, 5, 6, 7, 7]
+  SANITY_ARRAY_2 = [ 0, 3, 4, 4, 4, 5, 6, 7, 8]
+  SANITY_ARRAY_3 = [ 0, 3, 4, 5, 5, 6, 6, 7, 8]
+  SANITY_ARRAY_4 = [ 0, 4, 4, 4, 5, 6, 7, 7, 8]
+
+  def speed(character)
+    if 0 < character.birthday.month && character.birthday.month < 4
+        speed_array = SPEED_ARRAY_1
+      elsif  4 < character.birthday.month && character.birthday.month < 7
+        speed_array = SPEED_ARRAY_2
+      elsif  7 < character.birthday.month && character.birthday.month < 10
+        speed_array = SPEED_ARRAY_3
+      else
+        speed_array = SPEED_ARRAY_4
+    end
+    return speed_array
+  end
+
+
+  def sanity
     if 1 >= character.birthday.day <= 7
         SANITY_ARRAY_1
       elsif 8 >= character.birthday.month <= 15
@@ -76,4 +90,6 @@ class CharactersController < ApplicationController
         SANITY_ARRAY_4
     end
   end
+
+helper_method :speed
 end
