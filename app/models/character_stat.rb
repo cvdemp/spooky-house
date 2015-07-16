@@ -10,7 +10,5 @@ class CharacterStat < ActiveRecord::Base
   def printer
     puts "#{Character.find(character_id).name}"
     puts "#{Character.character_stats}"
-    # level
-    # value
   end
 end

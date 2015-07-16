@@ -18,8 +18,8 @@
 <div>
 <% if !@game.characters.nil? && !@game.characters.empty? %>
   <h3>Current Players</h3>
-  <%= @game.characters.each do |char| %>
-    <%= link_to char.name, character_path(char) %>
+  <% @game.characters.each do |char| %>
+    <%= link_to char.name, character_path(char) %><br>
   <% end %>
 <% end %>
 </div>

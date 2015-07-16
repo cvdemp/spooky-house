@@ -25,7 +25,7 @@ class CharactersController < ApplicationController
   end
 
   def update
-    @character = Character.new(params[:id])
+    @character = Character.update(params[:id])
     if @character.update(character_params)
       flash[:notice] = "Character Added!"
     else
@@ -41,8 +41,8 @@ class CharactersController < ApplicationController
                                         :user_id,
                                         :game_id,
                                         :birthday,
-                                        :hobby_1,
-                                        :hobby_2
+                                        :hobby1_id,
+                                        :hobby2_id
                                         )
   end
 
@@ -64,6 +64,16 @@ class CharactersController < ApplicationController
   SANITY_ARRAY_2 = [ 0, 3, 4, 4, 4, 5, 6, 7, 8]
   SANITY_ARRAY_3 = [ 0, 3, 4, 5, 5, 6, 6, 7, 8]
   SANITY_ARRAY_4 = [ 0, 4, 4, 4, 5, 6, 7, 7, 8]
+
+  KNOWLEDGE_ARRAY_1 = [ 0, 2, 3, 3, 4, 5, 6, 7, 7]
+  KNOWLEDGE_ARRAY_2 = [ 0, 3, 4, 4, 4, 5, 6, 7, 8]
+  KNOWLEDGE_ARRAY_3 = [ 0, 3, 4, 5, 5, 6, 6, 7, 8]
+  KNOWLEDGE_ARRAY_4 = [ 0, 4, 4, 4, 5, 6, 7, 7, 8]
+
+  MIGHT_ARRAY_1 = [ 0, 2, 3, 3, 4, 5, 6, 7, 7]
+  MIGHT_ARRAY_2 = [ 0, 3, 4, 4, 4, 5, 6, 7, 8]
+  MIGHT_ARRAY_3 = [ 0, 3, 4, 5, 5, 6, 6, 7, 8]
+  MIGHT_ARRAY_4 = [ 0, 4, 4, 4, 5, 6, 7, 7, 8]
 
   def speed(character)
     if 0 < character.birthday.month && character.birthday.month < 4

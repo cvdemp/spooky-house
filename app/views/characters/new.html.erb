@@ -10,11 +10,11 @@
     <%= f.label :birthday %>
     <%= f.date_select :birthday , start_year: 1910 %>
 
-    <%= f.label :hobby_1 %>
-    <%= f.text_field :hobby_1%>
+    <%= f.label :hobby1_id %>
+    <%= f.select :hobby1_id, Hobby1.all.collect{|h| [h.name, h.id]}%>
 
-    <%= f.label :hobby_2 %>
-    <%= f.text_field :hobby_2%>
+    <%= f.label :hobby2_id %>
+    <%= f.select :hobby2_id, Hobby2.all.collect{|h| [h.name, h.id]}%>
 
     <%= f.submit "Submit" %>
   <% end %>
