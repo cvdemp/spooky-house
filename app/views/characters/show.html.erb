@@ -1,20 +1,26 @@
 <div>
   <h1><%= @character.name %></h1>
+  <h2>
+    Birthday: <%= @character.birthday.month %>/
+    <%= @character.birthday.day %><br>
+    Hobbies: <%= @character.hobby1.name %>,
+    <%= @character.hobby2.name %>
 </div>
   <% speed_array = speed(@character) %>
-  <% sanity_array = sanity(@character) %>
   <% might_array = might(@character) %>
+  <% sanity_array = sanity(@character) %>
   <% knowledge_array = knowledge(@character) %>
 
 <div>
   <h3> Speed <%= speed_array %> </h3>
 </div>
-<div>
-  <h3> Sanity <%= sanity_array %> </h3>
-</div>
 
 <div>
   <h3> Might <%= might_array %> </h3>
+</div>
+
+<div>
+  <h3> Sanity <%= sanity_array %> </h3>
 </div>
 
 <div>

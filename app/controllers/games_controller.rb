@@ -22,13 +22,12 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @characters = Character.where(game: nil)
-    @character =  Character.find(current_user.id)
   end
 
   def update
     # you will have character info
-    # you will have game info
-    # @character.game = @game
+    @game = Game.id
+    @character.game = @game
     # if @character.save send elsewhere
   end
 

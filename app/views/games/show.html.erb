@@ -2,17 +2,10 @@
 
 <div>
   <h1>Pick a character!</h1>
-  <h3><%= form_for @character do |f| %>
-
-      <%= f.label :id, "Character Name" %>
-      <%= f.collection_select :id, @characters, :id, :name %></br>
-
-      <%= f.hidden_field :user_id, value: current_user.id %>
-
-      <%= f.hidden_field :game_id, value: @game.id %>
-
-      <%= f.submit "Select character" %>
-    <%- end -%>
+  <h3>
+    <% @characters.each do |char| %>
+      <%= link_to char.name, character_path(char), user_id: current_user.id,  method: 'patch' %><br>
+    <% end %>
   </h3>
 </div>
 

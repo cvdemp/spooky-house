@@ -24,6 +24,10 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
   end
 
+  def edit
+    @character = Character.find(params[:id])
+  end
+
   def update
     @character = Character.find(params[:id])
     if @character.update(character_params)
@@ -38,8 +42,7 @@ class CharactersController < ApplicationController
   protected
 
   def character_params
-    params.require(:character).permit(
-                                        :name,
+    params.require(:character).permit(  :name,
                                         :user_id,
                                         :game_id,
                                         :birthday,

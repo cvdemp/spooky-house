@@ -14,6 +14,7 @@ FactoryGirl.define do
   factory :character do
     sequence(:name) { |n| "Character #{n}" }
     sequence(:birthday) { |n| "Wed, #{n} Jul 2015" }
+
     hobby1
     hobby2
   end
