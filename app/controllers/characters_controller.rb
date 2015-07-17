@@ -42,13 +42,14 @@ class CharactersController < ApplicationController
   protected
 
   def character_params
-  params.require(:character).permit(:name,
-                                    :user_id,
-                                    :game_id,
-                                    :birthday,
-                                    :hobby1_id,
-                                    :hobby2_id
-                                    )
+  params.require(:character).permit(
+                                      :name,
+                                      :user_id,
+                                      :game_id,
+                                      :birthday,
+                                      :hobby1_id,
+                                      :hobby2_id
+                                      )
   end
 
   private
@@ -82,49 +83,49 @@ class CharactersController < ApplicationController
 
   def speed(character)
     if 0 < character.birthday.month && character.birthday.month < 4
-      speed_array = SPEED_ARRAY_1
+      SPEED_ARRAY_1
     elsif  4 <= character.birthday.month && character.birthday.month < 7
-      speed_array = SPEED_ARRAY_2
+      SPEED_ARRAY_2
     elsif  7 <= character.birthday.month && character.birthday.month < 10
-      speed_array = SPEED_ARRAY_3
+      SPEED_ARRAY_3
     else
-      speed_array = SPEED_ARRAY_4
+      SPEED_ARRAY_4
     end
   end
 
   def sanity(character)
     if 0 < character.birthday.day && character.birthday.day < 7
-      sanity_array = SANITY_ARRAY_1
+      SANITY_ARRAY_1
     elsif 7 <= character.birthday.day && character.birthday.day < 15
-      sanity_array = SANITY_ARRAY_2
+      SANITY_ARRAY_2
     elsif 15 <= character.birthday.day && character.birthday.day < 23
-      sanity_array = SANITY_ARRAY_3
+      SANITY_ARRAY_3
     else
-      sanity_array = SANITY_ARRAY_4
+      SANITY_ARRAY_4
     end
   end
 
   def knowledge(character)
     if 0 < character.hobby1_id && character.hobby1_id < 4
-      knowledge_array = KNOWLEDGE_ARRAY_1
+      KNOWLEDGE_ARRAY_1
     elsif  4 <= character.hobby1_id && character.hobby1_id < 7
-      knowledge_array = KNOWLEDGE_ARRAY_2
+      KNOWLEDGE_ARRAY_2
     elsif  7 <= character.hobby1_id && character.hobby1_id < 10
-      knowledge_array = KNOWLEDGE_ARRAY_3
+      KNOWLEDGE_ARRAY_3
     else
-      knowledge_array = KNOWLEDGE_ARRAY_4
+      KNOWLEDGE_ARRAY_4
     end
   end
 
   def might(character)
     if 0 < character.hobby2_id && character.hobby2_id < 4
-      might_array = MIGHT_ARRAY_1
+      MIGHT_ARRAY_1
     elsif  4 <= character.hobby2_id && character.hobby2_id < 7
-      might_array = MIGHT_ARRAY_2
+      MIGHT_ARRAY_2
     elsif  7 <= character.hobby2_id && character.hobby2_id < 10
-      might_array = MIGHT_ARRAY_3
+      MIGHT_ARRAY_3
     else
-      might_array = MIGHT_ARRAY_4
+      MIGHT_ARRAY_4
     end
   end
 
