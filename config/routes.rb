@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   resources :characters, except: [:delete]
 
-
   resources :games do
     resources :characters
   end

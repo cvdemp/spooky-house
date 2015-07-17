@@ -42,13 +42,13 @@ class CharactersController < ApplicationController
   protected
 
   def character_params
-    params.require(:character).permit(  :name,
-                                        :user_id,
-                                        :game_id,
-                                        :birthday,
-                                        :hobby1_id,
-                                        :hobby2_id
-                                        )
+  params.require(:character).permit(:name,
+                                    :user_id,
+                                    :game_id,
+                                    :birthday,
+                                    :hobby1_id,
+                                    :hobby2_id
+                                    )
   end
 
   private
@@ -82,56 +82,51 @@ class CharactersController < ApplicationController
 
   def speed(character)
     if 0 < character.birthday.month && character.birthday.month < 4
-        speed_array = SPEED_ARRAY_1
-      elsif  4 <= character.birthday.month && character.birthday.month < 7
-        speed_array = SPEED_ARRAY_2
-      elsif  7 <= character.birthday.month && character.birthday.month < 10
-        speed_array = SPEED_ARRAY_3
-      else
-        speed_array = SPEED_ARRAY_4
+      speed_array = SPEED_ARRAY_1
+    elsif  4 <= character.birthday.month && character.birthday.month < 7
+      speed_array = SPEED_ARRAY_2
+    elsif  7 <= character.birthday.month && character.birthday.month < 10
+      speed_array = SPEED_ARRAY_3
+    else
+      speed_array = SPEED_ARRAY_4
     end
-    return speed_array
   end
-
 
   def sanity(character)
     if 0 < character.birthday.day && character.birthday.day < 7
-        sanity_array = SANITY_ARRAY_1
-      elsif 7 <= character.birthday.day && character.birthday.day < 15
-        sanity_array = SANITY_ARRAY_2
-      elsif 15 <= character.birthday.day && character.birthday.day < 23
-        sanity_array = SANITY_ARRAY_3
-      else
-        sanity_array = SANITY_ARRAY_4
+      sanity_array = SANITY_ARRAY_1
+    elsif 7 <= character.birthday.day && character.birthday.day < 15
+      sanity_array = SANITY_ARRAY_2
+    elsif 15 <= character.birthday.day && character.birthday.day < 23
+      sanity_array = SANITY_ARRAY_3
+    else
+      sanity_array = SANITY_ARRAY_4
     end
-    return sanity_array
   end
 
   def knowledge(character)
     if 0 < character.hobby1_id && character.hobby1_id < 4
-        knowledge_array = KNOWLEDGE_ARRAY_1
-      elsif  4 <= character.hobby1_id && character.hobby1_id < 7
-        knowledge_array = KNOWLEDGE_ARRAY_2
-      elsif  7 <= character.hobby1_id && character.hobby1_id < 10
-        knowledge_array = KNOWLEDGE_ARRAY_3
-      else
-        knowledge_array = KNOWLEDGE_ARRAY_4
+      knowledge_array = KNOWLEDGE_ARRAY_1
+    elsif  4 <= character.hobby1_id && character.hobby1_id < 7
+      knowledge_array = KNOWLEDGE_ARRAY_2
+    elsif  7 <= character.hobby1_id && character.hobby1_id < 10
+      knowledge_array = KNOWLEDGE_ARRAY_3
+    else
+      knowledge_array = KNOWLEDGE_ARRAY_4
     end
-    return knowledge_array
   end
 
   def might(character)
     if 0 < character.hobby2_id && character.hobby2_id < 4
-        might_array = MIGHT_ARRAY_1
-      elsif  4 <= character.hobby2_id && character.hobby2_id < 7
-        might_array = MIGHT_ARRAY_2
-      elsif  7 <= character.hobby2_id && character.hobby2_id < 10
-        might_array = MIGHT_ARRAY_3
-      else
-        might_array = MIGHT_ARRAY_4
+      might_array = MIGHT_ARRAY_1
+    elsif  4 <= character.hobby2_id && character.hobby2_id < 7
+      might_array = MIGHT_ARRAY_2
+    elsif  7 <= character.hobby2_id && character.hobby2_id < 10
+      might_array = MIGHT_ARRAY_3
+    else
+      might_array = MIGHT_ARRAY_4
     end
-    return might_array
   end
 
-helper_method :speed, :sanity, :knowledge, :might
+  helper_method :speed, :sanity, :knowledge, :might
 end
