@@ -4,7 +4,8 @@
   <h1>Pick a character!</h1>
   <h3><%= form_for @character do |f| %>
 
-      <%= f.select :name, Character.where(game_id: nil).collect{|c| [c.name]} %></br>
+      <%= f.label :id, "Character Name" %>
+      <%= f.collection_select :id, @characters, :id, :name %></br>
 
       <%= f.hidden_field :user_id, value: current_user.id %>
 
@@ -15,7 +16,7 @@
   </h3>
 </div>
 
-<div>
+<div class="players">
 <% if !@game.characters.nil? && !@game.characters.empty? %>
   <h3>Current Players</h3>
   <% @game.characters.each do |char| %>

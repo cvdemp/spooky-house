@@ -25,11 +25,13 @@ class CharactersController < ApplicationController
   end
 
   def update
-    @character = Character.update(params[:id])
+    @character = Character.find(params[:id])
     if @character.update(character_params)
       flash[:notice] = "Character Added!"
+      redirect_to games_path
     else
       flash[:notice] = @character.errors.full_messages.join(" ")
+      render 'show'
     end
   end
 
@@ -91,23 +93,23 @@ class CharactersController < ApplicationController
 
   def sanity(character)
     if 0 < character.birthday.day && character.birthday.day < 7
-        SANITY_ARRAY_1
+        sanity_array = SANITY_ARRAY_1
       elsif 7 <= character.birthday.day && character.birthday.day < 15
-        SANITY_ARRAY_2
+        sanity_array = SANITY_ARRAY_2
       elsif 15 <= character.birthday.day && character.birthday.day < 23
-        SANITY_ARRAY_3
+        sanity_array = SANITY_ARRAY_3
       else
-        SANITY_ARRAY_4
+        sanity_array = SANITY_ARRAY_4
     end
     return sanity_array
   end
 
   def knowledge(character)
-    if 0 < character.hobby_1_id && character.hobby_1_id < 4
+    if 0 < character.hobby1_id && character.hobby1_id < 4
         knowledge_array = KNOWLEDGE_ARRAY_1
-      elsif  4 <= character.hobby_1_id && character.hobby_1_id < 7
+      elsif  4 <= character.hobby1_id && character.hobby1_id < 7
         knowledge_array = KNOWLEDGE_ARRAY_2
-      elsif  7 <= character.hobby_1_id && character.hobby_1_id < 10
+      elsif  7 <= character.hobby1_id && character.hobby1_id < 10
         knowledge_array = KNOWLEDGE_ARRAY_3
       else
         knowledge_array = KNOWLEDGE_ARRAY_4
@@ -116,11 +118,11 @@ class CharactersController < ApplicationController
   end
 
   def might(character)
-    if 0 < character.hobby_2_id && character.hobby_2_id < 4
+    if 0 < character.hobby2_id && character.hobby2_id < 4
         might_array = MIGHT_ARRAY_1
-      elsif  4 <= character.hobby_2_id && character.hobby_2_id < 7
+      elsif  4 <= character.hobby2_id && character.hobby2_id < 7
         might_array = MIGHT_ARRAY_2
-      elsif  7 <= character.hobby_2_id && character.hobby_2_id < 10
+      elsif  7 <= character.hobby2_id && character.hobby2_id < 10
         might_array = MIGHT_ARRAY_3
       else
         might_array = MIGHT_ARRAY_4

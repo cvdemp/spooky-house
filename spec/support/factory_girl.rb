@@ -13,14 +13,20 @@ FactoryGirl.define do
 
   factory :character do
     sequence(:name) { |n| "Character #{n}" }
-    user_id 1
-    game_id 1
     sequence(:birthday) { |n| "Wed, #{n} Jul 2015" }
-    hobby_1 'Coloring'
-    hobby_2 'Macrame'
+    hobby1
+    hobby2
   end
 
   factory :stat do
     name 'Speed'
+  end
+
+  factory :hobby1 do
+    sequence(:name) { |n| "Primary Hobby #{n}"}
+  end
+
+  factory :hobby2 do
+    sequence(:name) { |n| "Secondary Hobby #{n}"}
   end
 end

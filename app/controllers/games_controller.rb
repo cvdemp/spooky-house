@@ -21,8 +21,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @characters = Character.all
-    @character = Character.new
+    @characters = Character.where(game: nil)
+    @character =  Character.find(current_user.id)
   end
 
   def update

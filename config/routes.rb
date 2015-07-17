@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  'homes#index'
+  root 'games#index'
   devise_for :users
 
-  'characters#index'
   resources :characters, except: [:delete]
 
-  root 'games#index'
-  resources :games
+
+  resources :games do
+    resources :characters
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
