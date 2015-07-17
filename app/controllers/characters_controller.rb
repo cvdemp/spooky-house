@@ -43,13 +43,13 @@ class CharactersController < ApplicationController
 
   def character_params
   params.require(:character).permit(
-                                      :name,
-                                      :user_id,
-                                      :game_id,
-                                      :birthday,
-                                      :hobby1_id,
-                                      :hobby2_id
-                                      )
+                                    :name,
+                                    :user_id,
+                                    :game_id,
+                                    :birthday,
+                                    :hobby1_id,
+                                    :hobby2_id
+                                    )
   end
 
   private
