@@ -22,6 +22,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @characters = Character.where(game: nil)
+    @character = Character.new
   end
 
   def update
@@ -34,6 +35,6 @@ class GamesController < ApplicationController
   protected
 
   def game_params
-    params.require(:game).permit(:name)
+    params.require(:game).permit(:id, :name)
   end
 end

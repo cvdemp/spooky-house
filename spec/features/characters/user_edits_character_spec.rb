@@ -17,7 +17,7 @@ feature 'user edits character', %{
 
     click_link(game.name)
 
-    click_link(character.name)
+    select character.name, from: "Characters"
 
     click_button("Select character")
 

@@ -1,12 +1,24 @@
 <h1><%= @game.name %></h1>
-
 <div>
   <h1>Pick a character!</h1>
-  <h3>
+  <!-- <h3>
     <% @characters.each do |char| %>
-      <%= link_to char.name, character_path(char), user_id: current_user.id,  method: 'patch' %><br>
+      <%= link_to char.name, character_path(char)%><br>
     <% end %>
+  </h3> -->
+  <h3><%= form_for @character do |f| %>
+
+      <%= f.label :name, "Characters" %>
+      <%= f.select :name, Character.where(game_id: nil).collect{|c| [c.name]} %></br>
+
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <%= f.hidden_field :game_id, value: @game.id %>
+
+      <%= f.submit "Select character" %>
+    <%- end -%>
   </h3>
+
 </div>
 
 <div class="players">
