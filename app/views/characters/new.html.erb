@@ -14,6 +14,6 @@
     <%= f.label :hobby2_id %>
     <%= f.select :hobby2_id, Hobby2.all.collect{|h| [h.name, h.id]}%>
 
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", class: "button tiny" %>
   <% end %>
 </div>

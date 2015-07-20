@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'games#index'
   devise_for :users
 
-  resources :characters, except: [:delete]
+  resources :characters
 
   resources :games do
     resources :characters
