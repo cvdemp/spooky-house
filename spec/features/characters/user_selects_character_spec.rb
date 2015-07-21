@@ -7,16 +7,22 @@ feature 'user selects character', %{
 } do
 
   # Acceptance Criteria
-  # [] User can select character from a list
-  # [] User sees chosen character with markers at starting levels
+  # [] Player can select character from a list
+  # [] Player sees chosen character with markers at starting levels
 
-  let(:character) { Character.create!(name: "Professor Longfellow") }
 
-  scenario "user choses character" do
+  scenario "player choses character" do
+    user = FactoryGirl.create(:user)
+    game = FactoryGirl.create(:game)
+    character = FactoryGirl.create(:character)
 
-    visit root_path
-    click_link("Professor Longfellow")
-    # select "Professor Longfellow", from: "Characters"
+    sign_in_as(user)
+
+    visit games_path
+
+    click_link(game.name)
+
+    click_link(character.name)
 
     expect(page).to have_content("Speed")
   end

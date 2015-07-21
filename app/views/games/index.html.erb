@@ -1,0 +1,12 @@
+<div class="small-6 columns small-centered columns">
+  <h1> Welcome to Spooky House </h1>
+  <h3> Choose a game! </h3>
+  <ul>
+    <% @games.each do |game| %>
+      <li>
+        <%= link_to game.name, game_path(game) %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to "Create a new game", new_game_path(@game), class: "button small" %>
+</div>
