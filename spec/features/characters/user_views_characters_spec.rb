@@ -14,7 +14,6 @@ feature 'player can view a list of available characters', %{
     user = FactoryGirl.create(:user)
     test_characters = FactoryGirl.create_list(:character, 5)
 
-
     sign_in_as(user)
 
     visit games_path
