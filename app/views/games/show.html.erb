@@ -1,29 +1,27 @@
-<h1><%= @game.name %></h1>
+<div class="small-6 columns">
+  <h1><%= @game.name %></h1>
+  <div>
+    <h2>Pick a character!</h2>
+    <h3>
+      <% @characters.each do |char| %>
+        <%= link_to char.name, game_characters_path(char, character: { game_id: @game.id, user_id: current_user.id }), action: :update, class: "button small" %><br>
+      <% end %>
+    </h3>
 
-<div>
-  <h1>Pick a character!</h1>
-  <h3><%= form_for @character do |f| %>
-
-      <%= f.select :name, Character.where(game_id: nil).collect{|c| [c.name]} %></br>
-
-      <%= f.hidden_field :user_id, value: current_user.id %>
-
-      <%= f.hidden_field :game_id, value: @game.id %>
-
-      <%= f.submit "Select character" %>
-    <%- end -%>
-  </h3>
+  </div>
 </div>
-
-<div>
-<% if !@game.characters.nil? && !@game.characters.empty? %>
-  <h3>Current Players</h3>
-  <%= @game.characters.each do |char| %>
-    <%= link_to char.name, character_path(char) %>
+<div class="small-6 columns">
+  <div class="players">
+  <% if !@game.characters.nil? && !@game.characters.empty? %>
+    <h3>Current Players</h3>
+    <% @game.characters.each do |char| %>
+      <%= char.user.email %>
+      <%= link_to char.name, character_path(char) %><br>
+    <% end %>
   <% end %>
-<% end %>
-</div>
+  </div>
 
-<div>
-  <%= link_to "Create a character", new_character_path(@character), class: "button" %>
+  <div>
+    <%= link_to "Create a new character", new_character_path %>
+  </div>
 </div>

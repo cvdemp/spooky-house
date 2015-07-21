@@ -20,3 +20,13 @@ if character.birthday.day 1 >= && <= 7
   else
     SANITY_ARRAY_4
 end
+
+SPEED_ARRAY_1 = [ 0, 2, 3, 3, 4, 5, 6, 7, 7]
+SPEED_ARRAY_2 = [ 0, 3, 4, 4, 4, 5, 6, 7, 8]
+SPEED_ARRAY_3 = [ 0, 3, 3, 4, 5, 6, 6, 7, 8]
+SPEED_ARRAY_4 = [ 0, 4, 4, 4, 5, 6, 7, 7, 8]
+
+SANITY_ARRAY_1 = [ 0, 2, 3, 3, 4, 5, 6, 7, 7]
+SANITY_ARRAY_2 = [ 0, 3, 4, 4, 4, 5, 6, 7, 8]
+SANITY_ARRAY_3 = [ 0, 3, 4, 5, 5, 6, 6, 7, 8]
+SANITY_ARRAY_4 = [ 0, 4, 4, 4, 5, 6, 7, 7, 8]

@@ -7,7 +7,7 @@ feature 'player joins a game', %{
 } do
 
   # Acceptance Criteria
-  # [] Player can join a game
+  # [x] Player can join a game
   # [] Player is taken to character creation page
   # [] Player can see character at game table
 
@@ -15,12 +15,14 @@ feature 'player joins a game', %{
   scenario 'player joins game' do
     game = FactoryGirl.create(:game)
     user = FactoryGirl.create(:user)
+    character = FactoryGirl.create(:character)
 
     sign_in_as(user)
 
     visit games_path
+
     click_link(game.name)
 
-    expect(page).to have_content("Pick a character!")
+    expect(page).to have_content(character.name)
   end
 end

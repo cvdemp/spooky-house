@@ -24,12 +24,18 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
   end
 
+  def edit
+    @character = Character.find(params[:id])
+  end
+
   def update
-    @character = Character.new(params[:id])
-    if @character.update(character_params)
+    @character = Character.find(params[:id])
+    if @character.update(character_update_params)
       flash[:notice] = "Character Added!"
+      redirect_to games_path
     else
       flash[:notice] = @character.errors.full_messages.join(" ")
+      render 'show'
     end
   end
 
@@ -37,13 +43,19 @@ class CharactersController < ApplicationController
 
   def character_params
     params.require(:character).permit(
-                                        :name,
-                                        :user_id,
-                                        :game_id,
-                                        :birthday,
-                                        :hobby_1,
-                                        :hobby_2
-                                        )
+                                      :id,
+                                      :name,
+                                      :user_id,
+                                      :game_id,
+                                      :birthday,
+                                      :hobby1_id,
+                                      :hobby2_id
+                                      )
+  end
+
+  def character_update_params
+    params.permit( :id, :game_id)
+    Character.user_id = current_user.id
   end
 
   private
@@ -54,4 +66,74 @@ class CharactersController < ApplicationController
       redirect_to new_user_session_path
     end
   end
+
+  SPEED_ARRAY_1 = [0, 2, 3, 3, 4, 5, 6, 7, 7]
+  SPEED_ARRAY_2 = [0, 3, 4, 4, 4, 5, 6, 7, 8]
+  SPEED_ARRAY_3 = [0, 3, 3, 4, 5, 6, 6, 7, 8]
+  SPEED_ARRAY_4 = [0, 4, 4, 4, 5, 6, 7, 7, 8]
+
+  SANITY_ARRAY_1 = [0, 2, 3, 3, 4, 5, 6, 7, 7]
+  SANITY_ARRAY_2 = [0, 3, 4, 4, 4, 5, 6, 7, 8]
+  SANITY_ARRAY_3 = [0, 3, 4, 5, 5, 6, 6, 7, 8]
+  SANITY_ARRAY_4 = [0, 4, 4, 4, 5, 6, 7, 7, 8]
+
+  KNOWLEDGE_ARRAY_1 = [0, 2, 3, 3, 4, 5, 6, 7, 7]
+  KNOWLEDGE_ARRAY_2 = [0, 3, 4, 4, 4, 5, 6, 7, 8]
+  KNOWLEDGE_ARRAY_3 = [0, 3, 4, 5, 5, 6, 6, 7, 8]
+  KNOWLEDGE_ARRAY_4 = [0, 4, 4, 4, 5, 6, 7, 7, 8]
+
+  MIGHT_ARRAY_1 = [0, 2, 3, 3, 4, 5, 6, 7, 7]
+  MIGHT_ARRAY_2 = [0, 3, 4, 4, 4, 5, 6, 7, 8]
+  MIGHT_ARRAY_3 = [0, 3, 4, 5, 5, 6, 6, 7, 8]
+  MIGHT_ARRAY_4 = [0, 4, 4, 4, 5, 6, 7, 7, 8]
+
+  def speed(character)
+    if 0 < character.birthday.month && character.birthday.month < 4
+      SPEED_ARRAY_1
+    elsif  4 <= character.birthday.month && character.birthday.month < 7
+      SPEED_ARRAY_2
+    elsif  7 <= character.birthday.month && character.birthday.month < 10
+      SPEED_ARRAY_3
+    else
+      SPEED_ARRAY_4
+    end
+  end
+
+  def sanity(character)
+    if 0 < character.birthday.day && character.birthday.day < 7
+      SANITY_ARRAY_1
+    elsif 7 <= character.birthday.day && character.birthday.day < 15
+      SANITY_ARRAY_2
+    elsif 15 <= character.birthday.day && character.birthday.day < 23
+      SANITY_ARRAY_3
+    else
+      SANITY_ARRAY_4
+    end
+  end
+
+  def knowledge(character)
+    if 0 < character.hobby1_id && character.hobby1_id < 4
+      KNOWLEDGE_ARRAY_1
+    elsif  4 <= character.hobby1_id && character.hobby1_id < 7
+      KNOWLEDGE_ARRAY_2
+    elsif  7 <= character.hobby1_id && character.hobby1_id < 10
+      KNOWLEDGE_ARRAY_3
+    else
+      KNOWLEDGE_ARRAY_4
+    end
+  end
+
+  def might(character)
+    if 0 < character.hobby2_id && character.hobby2_id < 4
+      MIGHT_ARRAY_1
+    elsif  4 <= character.hobby2_id && character.hobby2_id < 7
+      MIGHT_ARRAY_2
+    elsif  7 <= character.hobby2_id && character.hobby2_id < 10
+      MIGHT_ARRAY_3
+    else
+      MIGHT_ARRAY_4
+    end
+  end
+
+  helper_method :speed, :sanity, :knowledge, :might
 end

@@ -1,21 +1,19 @@
-<div>
+<div class="small-6 columns small-centered columns">
   <h1> Create a Character </h1>
-</div>
-<div>
   <%= form_for @character do |f| %>
 
     <%= f.label :name %>
     <%= f.text_field :name %>
 
-    <%= f.label :birthday %>
+    <%= f.label :birthday, "Birthday" %>
     <%= f.date_select :birthday , start_year: 1910 %>
 
-    <%= f.label :hobby_1 %>
-    <%= f.text_field :hobby_1%>
+    <%= f.label :hobby1_id %>
+    <%= f.select :hobby1_id, Hobby1.all.collect{|h| [h.name, h.id]}%>
 
-    <%= f.label :hobby_2 %>
-    <%= f.text_field :hobby_2%>
+    <%= f.label :hobby2_id %>
+    <%= f.select :hobby2_id, Hobby2.all.collect{|h| [h.name, h.id]}%>
 
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", class: "button tiny" %>
   <% end %>
 </div>

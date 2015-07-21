@@ -21,20 +21,20 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @characters = Character.all
+    @characters = Character.where(game: nil)
     @character = Character.new
   end
 
   def update
     # you will have character info
-    # you will have game info
-    # @character.game = @game
+    @game = Game.id
+    @character.game = @game
     # if @character.save send elsewhere
   end
 
   protected
 
   def game_params
-    params.require(:game).permit(:name)
+    params.require(:game).permit(:id, :name)
   end
 end
