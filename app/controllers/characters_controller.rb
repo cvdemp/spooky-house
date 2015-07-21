@@ -49,7 +49,8 @@ class CharactersController < ApplicationController
                                       :game_id,
                                       :birthday,
                                       :hobby1_id,
-                                      :hobby2_id
+                                      :hobby2_id,
+                                      :image
                                       )
   end
 

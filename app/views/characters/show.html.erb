@@ -7,6 +7,11 @@
       Hobbies: <%= @character.hobby1.name %>,
       <%= @character.hobby2.name %>
   </div>
+
+  <div>
+    <%= image_tag @character.image_url.to_s %>
+  </div>
+
     <% speed_array = speed(@character) %>
     <% might_array = might(@character) %>
     <% sanity_array = sanity(@character) %>

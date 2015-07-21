@@ -11,6 +11,7 @@ class Character < ActiveRecord::Base
   belongs_to :hobby2
   has_many :stats, through: :character_stats
   has_many :character_stats
+  mount_uploader :image, ImageUploader
 
   validates :name, presence: true, uniqueness: { scope: [:game_id],
                                    message: "Character is in use." }
