@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 20150716194150) do
     t.string  "name",      null: false
     t.integer "user_id"
     t.integer "game_id"
-    t.date    "birthday"
-    t.integer "hobby1_id"
-    t.integer "hobby2_id"
+    t.date    "birthday",  null: false
+    t.integer "hobby1_id", null: false
+    t.integer "hobby2_id", null: false
   end
 
   create_table "games", force: :cascade do |t|
