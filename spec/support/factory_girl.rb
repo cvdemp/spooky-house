@@ -7,6 +7,14 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :hobby1 do
+    name 'Coloring'
+  end
+
+  factory :hobby2 do
+    name 'Knife Making'
+  end
+
   factory :game do
     sequence(:name) { |n| "Game #{n}" }
   end
@@ -23,11 +31,4 @@ FactoryGirl.define do
     name 'Speed'
   end
 
-  factory :hobby1 do
-    name "Coloring"
-  end
-
-  factory :hobby2 do
-    name "Knife Making"
-  end
 end

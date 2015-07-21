@@ -10,6 +10,7 @@ feature 'user selects character', %{
   # [] Player can select character from a list
   # [] Player sees chosen character with markers at starting levels
 
+
   scenario "player choses character" do
     user = FactoryGirl.create(:user)
     game = FactoryGirl.create(:game)
