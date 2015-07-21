@@ -30,7 +30,7 @@ class CharactersController < ApplicationController
 
   def update
     @character = Character.find(params[:id])
-    if @character.update(character_params)
+    if @character.update(character_update_params)
       flash[:notice] = "Character Added!"
       redirect_to games_path
     else
@@ -51,6 +51,11 @@ class CharactersController < ApplicationController
                                     :hobby1_id,
                                     :hobby2_id
                                     )
+  end
+
+  def character_update_params
+    params.permit( :id, :game_id)
+    Character.user_id = current_user.id
   end
 
   private

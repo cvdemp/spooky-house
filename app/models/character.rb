@@ -14,4 +14,7 @@ class Character < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: { scope: [:game_id],
                                    message: "Character is in use." }
+  validates :birthday, presence: true
+  validates :hobby1, presence: true
+  validates :hobby2, presence: true
 end

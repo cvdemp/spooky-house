@@ -6,28 +6,32 @@ feature 'user edits character', %{
   So I can add them to my game
 } do
 
-  scenario 'user edits character' do
-    character = FactoryGirl.create(:character)
-    user = FactoryGirl.create(:user)
-    game = FactoryGirl.create(:game)
+  # Acceptance Criteria
+  # [] Player can update a character
+  # [] Player can chose a character to play
+  # [] Character is added to game
+  # [] Player sees an error if character is currently in use
 
-    sign_in_as(user)
-
-    visit games_path
-
-    click_link(game.name)
-
-    select character.name, from: "Characters"
-
-    click_button("Select character")
-
-    expect(page).to have_content("Character Added!")
-
-    click_link(game.name)
-
-    within "div.players" do
-      expect(page).to have_content(character.name)
-    end
-  end
+  # scenario 'user edits character' do
+  #   character = FactoryGirl.create(:character)
+  #   user = FactoryGirl.create(:user)
+  #   game = FactoryGirl.create(:game)
+  #
+  #   sign_in_as(user)
+  #
+  #   visit games_path
+  #
+  #   click_link(game.name)
+  #
+  #   click_link(character.name)
+  #
+  #   expect(page).to have_content("Character Added!")
+  #
+  #   click_link(game.name)
+  #
+  #   within "div.players" do
+  #     expect(page).to have_content(character.name)
+  #   end
+  # end
 
 end

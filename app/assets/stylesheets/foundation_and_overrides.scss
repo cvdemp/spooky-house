@@ -114,7 +114,8 @@ $font-family-sans-serif: 'Oswald', sans-serif;
 // $oil         : #333333;
 // $jet         : #222222;
 // $black       : #000000;
-$grey          : #7E808F;
+ $grey          : #7E808F;
+ $lime          : #DDE587;
 
 // We use these as default colors throughout
  $primary-color: #7E808F;
@@ -271,7 +272,7 @@ $grey          : #7E808F;
 // We use these to style anchors
 // $anchor-text-decoration: none;
 // $anchor-text-decoration-hover: none;
-// $anchor-font-color: $primary-color;
+ $anchor-font-color: $lime;
 // $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
 
 // We use these to style the <hr> element
@@ -642,7 +643,7 @@ $grey          : #7E808F;
 // $form-label-font-size: rem-calc(14);
 // $form-label-font-weight: $font-weight-normal;
 // $form-label-line-height: 1.5;
-// $form-label-font-color: scale-color($black, $lightness: 30%);
+ $form-label-font-color: scale-color($grey, $lightness: 30%);
 // $form-label-small-transform: capitalize;
 // $form-label-bottom-margin: 0;
 // $input-font-family: inherit;
