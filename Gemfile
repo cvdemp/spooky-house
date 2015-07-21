@@ -59,7 +59,7 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'foundation-rails'
 gem 'rails-erd'
-gem 'rails_12factor'
+gem 'rails_12factor', group: [:production]
 gem 'pry-rails', group: [:development, :test]
 
 group :test do

@@ -24,12 +24,13 @@ Hobby2.create!(name: "Martial Arts")
 Hobby2.create!(name: "Knife Making")
 Hobby2.create!(name: "Weight Lifting")
 
-Character.create!(name:"Professor Longfellow")
 
 Stat.create!(name:"Speed")
 Stat.create!(name:"Might")
 Stat.create!(name:"Sanity")
 Stat.create!(name:"Knowledge")
+
+Character.create!(name: "Professor Longfellow", birthday: "Tue 21 Jul 2015", hobby1_id: 1, hobby2_id: 1)
 
 CharacterStat.create!(character_id: 1, stat_id: 1, level: 0, value: 0)
 CharacterStat.create!(character_id: 1, stat_id: 1, level: 1, value: 2)
@@ -70,7 +71,3 @@ CharacterStat.create!(character_id: 1, stat_id: 4, level: 5, value: 5)
 CharacterStat.create!(character_id: 1, stat_id: 4, level: 6, value: 6)
 CharacterStat.create!(character_id: 1, stat_id: 4, level: 7, value: 7)
 CharacterStat.create!(character_id: 1, stat_id: 4, level: 8, value: 8)
-
-Character.create!(name: "Madame Zostra")
-Character.create!(name: "Ox Bellows")
-Character.create!(name: "Zoe Ingstrom")

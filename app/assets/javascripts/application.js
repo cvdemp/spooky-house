@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require jquery.nouislider
 //= require_tree .
 
 $(function(){

@@ -7,6 +7,14 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :hobby1 do
+    name 'Coloring'
+  end
+
+  factory :hobby2 do
+    name 'Knife Making'
+  end
+
   factory :game do
     sequence(:name) { |n| "Game #{n}" }
   end
@@ -15,8 +23,8 @@ FactoryGirl.define do
     sequence(:name) { |n| "Character #{n}" }
     sequence(:birthday) { |n| "Wed, #{n} Jul 2015" }
 
-    hobby1 'Coloring'
-    hobby2 'Knife Making'
+    hobby1
+    hobby2
   end
 
   factory :stat do
