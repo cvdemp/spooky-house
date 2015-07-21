@@ -24,10 +24,10 @@ FactoryGirl.define do
   end
 
   factory :hobby1 do
-    sequence(:name) { |n| "Coloring" }
+    name "Coloring"
   end
 
   factory :hobby2 do
-    sequence(:name) { |n| "Knife Making" }
+    name "Knife Making"
   end
 end

@@ -42,15 +42,15 @@ class CharactersController < ApplicationController
   protected
 
   def character_params
-  params.require(:character).permit(
-                                    :id,
-                                    :name,
-                                    :user_id,
-                                    :game_id,
-                                    :birthday,
-                                    :hobby1_id,
-                                    :hobby2_id
-                                    )
+    params.require(:character).permit(
+                                      :id,
+                                      :name,
+                                      :user_id,
+                                      :game_id,
+                                      :birthday,
+                                      :hobby1_id,
+                                      :hobby2_id
+                                      )
   end
 
   def character_update_params
