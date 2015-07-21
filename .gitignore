@@ -12,4 +12,11 @@
 !/log/.keep
 /tmp
 
+# Ignore coveralls
 /coverage
+
+# Ignore env
+.env
+
+# Ignore photo uploads
+public/uploads

@@ -4,7 +4,7 @@
     <h2>Pick a character!</h2>
     <h3>
       <% @characters.each do |char| %>
-        <%= link_to char.name, game_characters_path(char, character: { game_id: @game.id, user_id: current_user.id }), action: :update, class: "button small" %><br>
+        <%= link_to char.name, character_path(char) %><br>
       <% end %>
     </h3>
 
