@@ -16,6 +16,7 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.new(character_params)
+    @character.user_id = current_user.id
     if @character.save
       flash[:notice] = "Character created!"
       redirect_to games_path
@@ -35,13 +36,21 @@ class CharactersController < ApplicationController
 
   def update
     @character = Character.find(params[:id])
-    if @character.update(character_update_params)
-      flash[:notice] = "Character Added!"
+    if @character.update(character_params)
+      flash[:notice] = "Character Updated!"
       redirect_to games_path
     else
       flash[:notice] = @character.errors.full_messages.join(" ")
       render 'show'
     end
+  end
+
+  def destroy
+    @character = Character.find(params[:id])
+    Character.destroy(@character)
+
+    flash[:notice] = 'Character Deleted'
+    redirect_to characters_path
   end
 
   protected
@@ -61,7 +70,6 @@ class CharactersController < ApplicationController
 
   def character_update_params
     params.permit( :id, :game_id)
-    Character.user_id = current_user.id
   end
 
   private

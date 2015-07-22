@@ -1,1 +1,12 @@
-<h3> This is the character index </h3>
+<h1> My Characters</h1>
+<% @characters.each do |char| %>
+  <% if char.user_id == current_user.id %>
+    <%= char.name %>
+    <% if user_signed_in? && (current_user == char.user) %>
+          <div class="button small"><%= link_to "Delete", character_path(char), method: :delete %></div>
+          <% if current_user == char.user %>
+            <div class="button small"><%= link_to "Edit", edit_character_path(char) %></div>
+          <% end %>
+        <% end %>
+  <% end %>
+<% end %>
