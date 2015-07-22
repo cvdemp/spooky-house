@@ -13,7 +13,7 @@ feature 'user edits character', %{
   scenario 'user edits character' do
     user = FactoryGirl.create(:user)
     character = FactoryGirl.create(:character, user_id: user.id)
-    
+
     sign_in_as(user)
 
     click_link("My Characters")
