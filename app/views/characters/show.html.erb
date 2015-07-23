@@ -8,20 +8,41 @@
       <%= @character.hobby2.name %>
       <%= image_tag @character.image_url.to_s %>
   </div>
-
+</div>
+<div class="small-6 columns">
   <div>
-    <h3> Speed <%= @character.speed %> </h3>
+    <h3> Speed <% @character.speed.each do |stat| %> </h3>
+    <ul class="stat-labels nine-columns">
+        <li> <%= stat %> </li>
+      <% end %>
+    </ul>
   </div>
 
   <div>
-    <h3> Might <%= @character.might %> </h3>
+    <h3> Might <% @character.might.each do |stat| %> </h3>
+    <ul class="stat-labels nine-columns">
+        <li> <%= stat %> </li>
+      <% end %>
+    </ul>
   </div>
 
   <div>
-    <h3> Sanity <%= @character.sanity %> </h3>
+    <h3> Sanity <% @character.sanity.each do |stat| %> </h3>
+    <ul class="stat-labels nine-columns">
+        <li> <%= stat %> </li>
+      <% end %>
+    </ul>
   </div>
 
   <div>
-    <h3> Knowledge <%= @character.knowledge %> </h3>
+    <h3> Knowledge <% @character.knowledge.each do |stat| %> </h3>
+    <ul class="stat-labels nine-columns">
+        <li> <%= stat %> </li>
+      <% end %>
+    </ul>
   </div>
 </div>
+
+<script>
+
+</script>

@@ -45,3 +45,22 @@ ul {
     padding: 0;
     margin: 0;
 }
+
+.nine-columns li {
+	width:calc(100% / 9);
+}
+
+.stat-labels li {
+	color: #d3d3d3;
+	display: inline;
+	float:left;
+	cursor: pointer;
+}
+
+.stat-labels li:hover {
+   color: #DDE587;
+}
+
+.stat-labels li.active {
+   color: #DDE587;
+}
