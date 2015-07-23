@@ -20,3 +20,30 @@
     <%= f.submit "Submit", class: "button tiny" %>
   <% end %>
 </div>
+
+<div>
+  <!-- Upload image -->
+<section id="sectionDragAndDrop">
+    <div class="drop" id="drop">
+        <p>Drag & drop or click here to upload an image.</p>
+    </div>
+    <input class="file-upload hidden" id="fileUpload" type="file">
+</section>
+
+<!-- Resize image -->
+<section class="hidden" id="sectionResize">
+    <div class="image-resize" id="imageResize"></div>
+  <button class="btn" id="crop"><span class='fa fa-crop'></span> Crop</button>
+</section>
+
+<!-- Insert thumbnail -->
+<section class="hidden" id="sectionThumbnail">
+    <div class="thumbnail" id="thumbnail"></div>
+</section>
+</div>
+<h1>Image Crop</h1>
+
+<img id="exampleImage" src="http://i.imgur.com/dBpMbIf.jpg" crossorigin="Anonymous">
+
+<button class="btn" id="exampleCrop">Crop</button>
+</div>
