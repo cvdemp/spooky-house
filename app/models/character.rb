@@ -14,8 +14,8 @@ class Character < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  validates :name, presence: true, uniqueness: { scope: [:game_id],
-                                    message: "Character is in use." }
+  validates :name, presence: true, uniqueness: { scope: [:user_id],
+                                  message: "Character is in use." }
 
   validates :name, presence: true
   validates :birthday, presence: true
@@ -24,7 +24,6 @@ class Character < ActiveRecord::Base
 
   def speed
     # stats.find_by(name: "speed").speed_for(birthday.month)
-
     if 0 < birthday.month && birthday.month < 4
       Stat::SPEED_ARRAY_1
     elsif  4 <= birthday.month && birthday.month < 7
@@ -71,6 +70,4 @@ class Character < ActiveRecord::Base
       Stat::MIGHT_ARRAY_4
     end
   end
-
-
 end

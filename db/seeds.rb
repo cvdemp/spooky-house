@@ -24,5 +24,6 @@ Hobby2.create!(name: "Martial Arts")
 Hobby2.create!(name: "Knife Making")
 Hobby2.create!(name: "Weight Lifting")
 
-User.create!(email:"user@user.com", password:"password")
-Character.create!(name: "Professor Longfellow", birthday: "Tue 21 Jul 2015", user_id: 1, hobby1_id: 1, hobby2_id: 1)
+User.create!(email: "user@user.com", password: "password")
+Character.create!(name: "Professor Longfellow", birthday: "Tue 21 Jul 2015",
+ user_id: 1, hobby1_id: 1, hobby2_id: 1)
