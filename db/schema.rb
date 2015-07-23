@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721154834) do
+ActiveRecord::Schema.define(version: 20150722185236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "character_stats", force: :cascade do |t|
-    t.integer "character_id", null: false
-    t.integer "stat_id",      null: false
-    t.integer "value",        null: false
-    t.integer "level",        null: false
-  end
 
   create_table "characters", force: :cascade do |t|
     t.string  "name",      null: false
@@ -34,7 +27,9 @@ ActiveRecord::Schema.define(version: 20150721154834) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string "name", null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "hobby1s", force: :cascade do |t|
@@ -46,7 +41,10 @@ ActiveRecord::Schema.define(version: 20150721154834) do
   end
 
   create_table "stats", force: :cascade do |t|
-    t.string "name", null: false
+    t.string  "name",         null: false
+    t.integer "character_id"
+    t.integer "value"
+    t.integer "level"
   end
 
   create_table "users", force: :cascade do |t|

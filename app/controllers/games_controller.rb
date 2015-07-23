@@ -1,6 +1,8 @@
 class GamesController < ApplicationController
+  before_action :require_login, only: [:new, :edit, :update, :delete]
+
   def index
-    @games = Game.all
+    @games = Game.all.order(created_at: :desc)
     @game = Game.new
   end
 
@@ -26,15 +28,22 @@ class GamesController < ApplicationController
   end
 
   def update
-    # you will have character info
     @game = Game.id
     @character.game = @game
-    # if @character.save send elsewhere
   end
 
   protected
 
   def game_params
     params.require(:game).permit(:id, :name)
+  end
+
+  private
+  
+  def require_login
+    unless user_signed_in?
+      flash[:error] = "You must be signed in to do that"
+      redirect_to new_user_session_path
+    end
   end
 end

@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :require_login, only: [:new, :edit, :update]
+  before_action :require_login, only: [:new, :edit, :update, :delete]
 
   def index
     @characters = Character.all
@@ -81,73 +81,5 @@ class CharactersController < ApplicationController
     end
   end
 
-  SPEED_ARRAY_1 = [0, 2, 3, 3, 4, 5, 6, 7, 7]
-  SPEED_ARRAY_2 = [0, 3, 4, 4, 4, 5, 6, 7, 8]
-  SPEED_ARRAY_3 = [0, 3, 3, 4, 5, 6, 6, 7, 8]
-  SPEED_ARRAY_4 = [0, 4, 4, 4, 5, 6, 7, 7, 8]
 
-  SANITY_ARRAY_1 = [0, 2, 3, 3, 4, 5, 6, 7, 7]
-  SANITY_ARRAY_2 = [0, 3, 4, 4, 4, 5, 6, 7, 8]
-  SANITY_ARRAY_3 = [0, 3, 4, 5, 5, 6, 6, 7, 8]
-  SANITY_ARRAY_4 = [0, 4, 4, 4, 5, 6, 7, 7, 8]
-
-  KNOWLEDGE_ARRAY_1 = [0, 2, 3, 3, 4, 5, 6, 7, 7]
-  KNOWLEDGE_ARRAY_2 = [0, 3, 4, 4, 4, 5, 6, 7, 8]
-  KNOWLEDGE_ARRAY_3 = [0, 3, 4, 5, 5, 6, 6, 7, 8]
-  KNOWLEDGE_ARRAY_4 = [0, 4, 4, 4, 5, 6, 7, 7, 8]
-
-  MIGHT_ARRAY_1 = [0, 2, 3, 3, 4, 5, 6, 7, 7]
-  MIGHT_ARRAY_2 = [0, 3, 4, 4, 4, 5, 6, 7, 8]
-  MIGHT_ARRAY_3 = [0, 3, 4, 5, 5, 6, 6, 7, 8]
-  MIGHT_ARRAY_4 = [0, 4, 4, 4, 5, 6, 7, 7, 8]
-
-  def speed(character)
-    if 0 < character.birthday.month && character.birthday.month < 4
-      SPEED_ARRAY_1
-    elsif  4 <= character.birthday.month && character.birthday.month < 7
-      SPEED_ARRAY_2
-    elsif  7 <= character.birthday.month && character.birthday.month < 10
-      SPEED_ARRAY_3
-    else
-      SPEED_ARRAY_4
-    end
-  end
-
-  def sanity(character)
-    if 0 < character.birthday.day && character.birthday.day < 7
-      SANITY_ARRAY_1
-    elsif 7 <= character.birthday.day && character.birthday.day < 15
-      SANITY_ARRAY_2
-    elsif 15 <= character.birthday.day && character.birthday.day < 23
-      SANITY_ARRAY_3
-    else
-      SANITY_ARRAY_4
-    end
-  end
-
-  def knowledge(character)
-    if 0 < character.hobby1_id && character.hobby1_id < 4
-      KNOWLEDGE_ARRAY_1
-    elsif  4 <= character.hobby1_id && character.hobby1_id < 7
-      KNOWLEDGE_ARRAY_2
-    elsif  7 <= character.hobby1_id && character.hobby1_id < 10
-      KNOWLEDGE_ARRAY_3
-    else
-      KNOWLEDGE_ARRAY_4
-    end
-  end
-
-  def might(character)
-    if 0 < character.hobby2_id && character.hobby2_id < 4
-      MIGHT_ARRAY_1
-    elsif  4 <= character.hobby2_id && character.hobby2_id < 7
-      MIGHT_ARRAY_2
-    elsif  7 <= character.hobby2_id && character.hobby2_id < 10
-      MIGHT_ARRAY_3
-    else
-      MIGHT_ARRAY_4
-    end
-  end
-
-  helper_method :speed, :sanity, :knowledge, :might
 end
