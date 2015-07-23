@@ -1,35 +1,50 @@
-<div class="small-6 columns">
+<div class="small-12 small-centered columns">
   <div>
     <h1><%= @character.name %></h1>
     <h2>
       Birthday: <%= @character.birthday.month %>/
-      <%= @character.birthday.day %><br>
-      Hobbies: <%= @character.hobby1.name %>,
+      <%= @character.birthday.day %> •
+      Hobbies: <%= @character.hobby1.name %> and
       <%= @character.hobby2.name %>
   </div>
+</div>
+
+<div class="small-6 columns">
+  <div>
+    <h3> Speed <% @character.speed.each do |stat| %> </h3>
+    <ul class="stat-labels nine-columns">
+        <li> <%= stat %> </li>
+      <% end %>
+    </ul>
+  </div>
 
   <div>
+    <h3> Might <% @character.might.each do |stat| %> </h3>
+    <ul class="stat-labels nine-columns">
+        <li> <%= stat %> </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div>
+    <h3> Sanity <% @character.sanity.each do |stat| %> </h3>
+    <ul class="stat-labels nine-columns">
+        <li> <%= stat %> </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div>
+    <h3> Knowledge <% @character.knowledge.each do |stat| %> </h3>
+    <ul class="stat-labels nine-columns">
+        <li> <%= stat %> </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="small-6 columns">
+  <div class="character-pic">
     <%= image_tag @character.image_url.to_s %>
-  </div>
-
-    <% speed_array = speed(@character) %>
-    <% might_array = might(@character) %>
-    <% sanity_array = sanity(@character) %>
-    <% knowledge_array = knowledge(@character) %>
-
-  <div>
-    <h3> Speed <%= speed_array %> </h3>
-  </div>
-
-  <div>
-    <h3> Might <%= might_array %> </h3>
-  </div>
-
-  <div>
-    <h3> Sanity <%= sanity_array %> </h3>
-  </div>
-
-  <div>
-    <h3> Knowledge <%= knowledge_array %> </h3>
   </div>
 </div>

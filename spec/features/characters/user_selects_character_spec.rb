@@ -7,7 +7,7 @@ feature 'user selects character', %{
 } do
 
   # Acceptance Criteria
-  # [] Player can select character from a list
+  # [x] Player can select character from a list
   # [] Player sees chosen character with markers at starting levels
 
 
@@ -24,6 +24,6 @@ feature 'user selects character', %{
 
     click_link(character.name)
 
-    expect(page).to have_content("Speed")
+    expect(page).to have_content("Character Updated!")
   end
 end
