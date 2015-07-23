@@ -58,9 +58,18 @@ ul {
 }
 
 .stat-labels li:hover {
-   color: #DDE587;
+  transition: all .1s ease-in;
+  transform: scale(1.4);
+  color: #DDE587;
 }
 
 .stat-labels li.active {
-   color: #DDE587;
+  transition: all .1s ease-in;
+  transform: scale(1.4);
+  color: #DDE587;
 }
+
+.character-pic {
+  height: 300px;
+  width: 300px;
+  }

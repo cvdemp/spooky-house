@@ -1,14 +1,14 @@
-<div class="small-6 columns">
+<div class="small-12 small-centered columns">
   <div>
     <h1><%= @character.name %></h1>
     <h2>
       Birthday: <%= @character.birthday.month %>/
-      <%= @character.birthday.day %><br>
-      Hobbies: <%= @character.hobby1.name %>,
+      <%= @character.birthday.day %> •
+      Hobbies: <%= @character.hobby1.name %> and
       <%= @character.hobby2.name %>
-      <%= image_tag @character.image_url.to_s %>
   </div>
 </div>
+
 <div class="small-6 columns">
   <div>
     <h3> Speed <% @character.speed.each do |stat| %> </h3>
@@ -43,6 +43,8 @@
   </div>
 </div>
 
-<script>
-
-</script>
+<div class="small-6 columns">
+  <div class="character-pic">
+    <%= image_tag @character.image_url.to_s %>
+  </div>
+</div>
