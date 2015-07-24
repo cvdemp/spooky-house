@@ -1,5 +1,7 @@
-<div class="small-6 columns">
+<div class="small-6 small-centered columns">
   <h1><%= @game.name %></h1>
+</div>
+<div class="small-6 columns">
   <div>
     <h2>Pick a character!</h2>
     <h3>
@@ -12,18 +14,16 @@
 
   </div>
 </div>
-<div class="small-6 columns">
-  <div class="players">
   <% if !@game.characters.nil? && !@game.characters.empty? %>
+  <div class="small-6 columns">
+    <div class="players">
     <h3>Current Players</h3>
     <% @game.characters.each do |char| %>
-      <%= char.user.email %>
       <%= link_to char.name, character_path(char) %><br>
     <% end %>
   <% end %>
   </div>
 
   <div>
-    <%= link_to "Create a new character", new_character_path %>
   </div>
 </div>

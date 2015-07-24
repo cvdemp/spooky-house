@@ -7,7 +7,7 @@ feature 'user edits character', %{
 } do
 
   # Acceptance Criteria
-  # [] Player can edit a character
+  # [x] Player can edit a character
   # [] Player sees an error if form is filled out incorrectly
 
   scenario 'user edits character' do

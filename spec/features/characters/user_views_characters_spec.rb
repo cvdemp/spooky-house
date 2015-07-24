@@ -7,7 +7,7 @@ feature 'player can view a list of available characters', %{
 } do
 
   #   Acceptance Criteria
-  # [] Player sees a list of characters
+  # [x] Player sees a list of characters
 
   scenario 'user views list of characters' do
     game = FactoryGirl.create(:game)

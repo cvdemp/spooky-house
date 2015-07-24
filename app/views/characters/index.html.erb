@@ -1,12 +1,19 @@
-<h1> My Characters</h1>
-<% @characters.each do |char| %>
-  <% if char.user_id == current_user.id %>
-    <%= char.name %>
-    <% if user_signed_in? && (current_user == char.user) %>
-          <div class="button small"><%= link_to "Delete", character_path(char), method: :delete %></div>
-          <% if current_user == char.user %>
-            <div class="button small"><%= link_to "Edit", edit_character_path(char) %></div>
+<div class="small-12 small-centered columns">
+  <h1> My Characters</h1>
+  <% @characters.each do |char| %>
+    <div class="small-3 medium-4 columns"
+    <% if char.user_id == current_user.id %>
+    <div class="name">
+      <h3><%= link_to char.name, character_path(char) %></h3>
+    </div>
+      <% if user_signed_in? && (current_user == char.user) %>
+            <div class="button small"><%= link_to "Delete", character_path(char), method: :delete %></div>
+            <% if current_user == char.user %>
+              <div class="button small"><%= link_to "Edit", edit_character_path(char) %></div>
+              <br>
+            </div>
+            <% end %>
           <% end %>
-        <% end %>
+    <% end %>
   <% end %>
-<% end %>
+</div>

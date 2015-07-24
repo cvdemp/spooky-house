@@ -38,7 +38,7 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
     if @character.update(character_params)
       flash[:notice] = "Character Updated!"
-      redirect_to games_path
+      redirect_to :back
     else
       flash[:notice] = @character.errors.full_messages.join(" ")
       render 'show'
