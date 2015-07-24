@@ -8,8 +8,6 @@ feature 'player joins a game', %{
 
   # Acceptance Criteria
   # [x] Player can join a game
-  # [] Player is taken to character creation page
-  # [] Player can see character at game table
 
 
   scenario 'player joins game' do

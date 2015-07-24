@@ -8,7 +8,7 @@ feature 'user creates a game', %{
 
   # Acceptance Criteria
   # [x] Player can create a game
-  # [] Player must be signed in to create a game
+  # [x] Player must be signed in to create a game
   # [x] Player can see the new game on the games list
 
   scenario "authenticated player creates game" do

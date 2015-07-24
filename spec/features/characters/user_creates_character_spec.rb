@@ -18,10 +18,6 @@ feature 'user creates a character', %{
 
     sign_in_as(user)
 
-    visit games_path
-
-    click_link(game.name)
-
     click_link("Create a new character")
 
     fill_in "Name", with: character.name
@@ -44,10 +40,6 @@ feature 'user creates a character', %{
     game = FactoryGirl.create(:game)
 
     sign_in_as(user)
-
-    visit games_path
-
-    click_link(game.name)
 
     click_link("Create a new character")
 

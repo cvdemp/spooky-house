@@ -8,7 +8,6 @@ feature 'user edits character', %{
   # Acceptance Criteria
   # [x] Player can delete a character they created
   # [x] Player recieves a confirmation message
-  # [] Player sees error if they try to delete a character the did not create
   # [] Player must be logged in to delete character
 
   scenario 'user deletes character they created' do
