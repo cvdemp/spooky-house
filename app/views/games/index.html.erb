@@ -1,17 +1,27 @@
-<div class="small-6 columns small-centered columns">
-  <div class="home-header">
-    <%= image_tag("SpookyHouseHeader.jpg", height:"400", width:"400") %>
+<div class="home-header">
+  <div class="small-5 columns small-offset-6 columns ">
+    <div class="about">
+        <p>
+          SpookyHouse is a character compainion for the board game
+        <a href="http://www.wizards.com/default.asp?x=ah/prod/betrayalhouse">
+          Betrayal at the House on the Hill</a>. Forget the cardboard cards
+          and create your own character to spice up your game play.  Join a
+          game with your friends to check out where the other characters
+          stand.
+        </p>
+        <%= link_to "Create a new game", new_game_path(@game), class: "button small" %>
+        <%= link_to "Create a new character", new_character_path, class: "button small" %>
+    </div>
   </div>
-  <div class="gameblock">
-    <br>
-    <h3> Join a game! </h3>
-    <ul>
-      <% @games.each do |game| %>
-        <li>
+</div>
+<div class="joingame">
+  <div class="medium-8 columns">
+  <% @games.each do |game| %>
+    <div class="small-6 medium-2 columns gameblock">
+      <p class="text-center">
           <%= link_to game.name, game_path(game) %>
-        </li>
-      <% end %>
-    </ul>
-    <%= link_to "Create a new game", new_game_path(@game), class: "button small" %>
+        </p>
+    </div>
+    <% end %>
   </div>
 </div>
