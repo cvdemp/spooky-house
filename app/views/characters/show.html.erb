@@ -10,7 +10,7 @@
 </div>
 
 <div class="small-6 columns">
-  <div>
+  <div class="stat-bubble">
     <h3> Speed <% @character.speed.each do |stat| %> </h3>
     <ul class="stat-labels nine-columns">
         <li> <%= stat %> </li>
@@ -18,7 +18,7 @@
     </ul>
   </div>
 
-  <div>
+  <div class="stat-bubble">
     <h3> Might <% @character.might.each do |stat| %> </h3>
     <ul class="stat-labels nine-columns">
         <li> <%= stat %> </li>
@@ -26,7 +26,7 @@
     </ul>
   </div>
 
-  <div>
+  <div class="stat-bubble">
     <h3> Sanity <% @character.sanity.each do |stat| %> </h3>
     <ul class="stat-labels nine-columns">
         <li> <%= stat %> </li>
@@ -34,7 +34,7 @@
     </ul>
   </div>
 
-  <div>
+  <div class="stat-bubble">
     <h3> Knowledge <% @character.knowledge.each do |stat| %> </h3>
     <ul class="stat-labels nine-columns">
         <li> <%= stat %> </li>

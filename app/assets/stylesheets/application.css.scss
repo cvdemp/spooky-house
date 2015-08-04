@@ -41,6 +41,11 @@ ul {
     margin: 0;
 }
 
+.stat-bubble {
+  background:rgba(0,0,0,0.5);
+  padding: 20px 10px;
+}
+
 .nine-columns li {
 	width:calc(100% / 9);
 }
@@ -68,9 +73,6 @@ ul {
   height: 300px;
   width: 300px;
 }
-
-$dropdown-inline-display: inline-block !important;
-$dropdown-inline-width: 30% !important;
 
 .home-header {
   background-image: image-url("SpookyHouseHeader.gif");
